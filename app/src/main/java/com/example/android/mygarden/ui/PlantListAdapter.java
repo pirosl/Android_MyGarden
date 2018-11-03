@@ -18,6 +18,7 @@ package com.example.android.mygarden.ui;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +53,7 @@ public class PlantListAdapter extends RecyclerView.Adapter<PlantListAdapter.Plan
      * @return A new PlantViewHolder that holds a View with the plant_list_item layout
      */
     @Override
+    @NonNull
     public PlantViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Get the RecyclerView item layout
         LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -60,6 +62,7 @@ public class PlantListAdapter extends RecyclerView.Adapter<PlantListAdapter.Plan
     }
 
     @Override
+    @NonNull
     public void onBindViewHolder(PlantViewHolder holder, int position) {
 
         mCursor.moveToPosition(position);
@@ -82,7 +85,7 @@ public class PlantListAdapter extends RecyclerView.Adapter<PlantListAdapter.Plan
     }
 
     public void swapCursor(Cursor newCursor) {
-        if (mCursor != null) {
+        if (mCursor != null && mCursor != newCursor) {
             mCursor.close();
         }
         mCursor = newCursor;
