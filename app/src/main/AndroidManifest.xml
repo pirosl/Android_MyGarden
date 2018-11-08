@@ -38,6 +38,11 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/plant_widget_provider_info" />
         </receiver>
+
+        <service
+            android:name=".PlantWateringService"
+            android:exported="false"
+            />
     </application>
 
 </manifest>
